@@ -1,4 +1,4 @@
-# CapRover Websockets Test
+# CapRover Websocket Example
 
 Basic App for testing Websocket support in CapRover.
 
