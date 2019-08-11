@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      body { font: 13px Helvetica, Arial; }
+      .error { color: #b71c1c; }
+      .success { color: #33691e; }
+    </style>
+  </head>
+  <body>
+    <p id="info">Testing Websocket Support...</p>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var infoEl = document.querySelector('#info')
+
+      var socket = io({
+        transports: ['websocket']
+      })
+
+      socket.on('connect_error', (error) => {
+        infoEl.textContent = 'No support for websockets!'
+        infoEl.className = 'error'
+      })
+      
+      socket.on('message', (message) => {
+        infoEl.textContent = message
+        infoEl.className = 'success'
+      })
+    </script>
+  </body>
+</html>
